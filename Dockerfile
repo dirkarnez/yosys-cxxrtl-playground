@@ -13,6 +13,7 @@ USER wokwi
 ENV PATH="/opt/oss-cad-suite/bin:${PATH}"
 ADD --chown=wokwi project /home/wokwi/project
 WORKDIR /home/wokwi/project
+VOLUME /home/wokwi/project
 RUN ./compile.sh
 
 # Wokwi builder configuration:
