@@ -26,7 +26,7 @@ enum edge {
   BOTH = 3,
 };
 
-void __attribute__((export_name("_wokwi:api.version=1"))) __wokwi_api_version(void) {}
+// void __attribute__((export_name("_wokwi:api.version=1"))) __wokwi_api_version(void) {}
 
 #ifdef __cplusplus
 extern "C" {
