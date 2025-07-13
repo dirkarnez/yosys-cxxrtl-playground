@@ -16,10 +16,10 @@ jobs:
       - uses: actions/checkout@v4
       
     # continue-on-error: true
+    # mkdir -p dist && \
       - name: set permission and run
         run: |
           sudo chmod -R +x . && \
-          mkdir -p dist && \
           ls && \
           docker compose up --build && docker compose down
           
@@ -35,12 +35,12 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           type: 'zip'
-          directory: "dist"
+          directory: "project"
           filename: "${{ github.event.repository.name }}-${{ github.ref_name }}.zip"
           
       - name: Release prebuilt
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist/${{ github.event.repository.name }}-${{ github.ref_name }}.zip"
+          artifacts: "project/${{ github.event.repository.name }}-${{ github.ref_name }}.zip"
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
