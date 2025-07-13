@@ -36,11 +36,11 @@ jobs:
         with:
           type: 'zip'
           directory: "dist"
-          filename: "docker-compose-playground-${{ github.ref_name }}.zip"
+          filename: "${{ github.event.repository.name }}-${{ github.ref_name }}.zip"
           
       - name: Release prebuilt
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist/docker-compose-playground-${{ github.ref_name }}.zip"
+          artifacts: "dist/${{ github.event.repository.name }}-${{ github.ref_name }}.zip"
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
