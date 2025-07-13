@@ -14,7 +14,7 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     volumes:
-      - .:/workspace
+      - .:/home/wokwi/project
       # - ./build_output:/tmp/build_output
 # volumes:
 #   workspace:
