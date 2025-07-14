@@ -12,8 +12,8 @@ RUN adduser --disabled-password --gecos "" wokwi
 USER wokwi
 ENV PATH="/opt/oss-cad-suite/bin:${PATH}"
 ADD --chown=wokwi project /home/wokwi/project
-WORKDIR /home/wokwi/project
 VOLUME /home/wokwi
+WORKDIR /home/wokwi/project
 
 # Wokwi builder configuration:
 ENV HEXI_SRC_DIR="/home/wokwi/project/src"
