@@ -13,8 +13,7 @@ USER wokwi
 ENV PATH="/opt/oss-cad-suite/bin:${PATH}"
 
 RUN mkdir -p /home/wokwi/project
-# ADD --chown=wokwi . /home/wokwi
-COPY ./project /home/wokwi/project
+ADD --chown=wokwi ./project /home/wokwi/project
 VOLUME /home/wokwi/project
 WORKDIR /home/wokwi/project
 
@@ -24,5 +23,5 @@ ENV HEXI_BUILD_CMD="/home/wokwi/project/compile.sh"
 ENV HEXI_OUT_HEX="/home/wokwi/project/wokwi.wasm"
 ENV HEXI_OUT_ELF="/home/wokwi/project/wokwi.wasm"
 
-CMD [ "bash", "./compile.sh" ]
+CMD [ "./compile.sh" ]
 
