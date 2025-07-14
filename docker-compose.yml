@@ -14,7 +14,7 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     volumes:
-    - .:/home/wokwi
+    - ./project:/home/wokwi/project
 # volumes:
 #   workspace:
 #     driver: local
