@@ -21,3 +21,7 @@ ENV HEXI_SRC_DIR="/home/wokwi/project/src"
 ENV HEXI_BUILD_CMD="/home/wokwi/project/compile.sh"
 ENV HEXI_OUT_HEX="/home/wokwi/project/wokwi.wasm"
 ENV HEXI_OUT_ELF="/home/wokwi/project/wokwi.wasm"
+
+CMD cd /home/wokwi/project && \
+  ls && \
+  exit
