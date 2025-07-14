@@ -14,7 +14,6 @@ ENV PATH="/opt/oss-cad-suite/bin:${PATH}"
 ADD --chown=wokwi project /home/wokwi/project
 WORKDIR /home/wokwi/project
 VOLUME /home/wokwi/project
-RUN ./compile.sh
 
 # Wokwi builder configuration:
 ENV HEXI_SRC_DIR="/home/wokwi/project/src"
@@ -22,6 +21,6 @@ ENV HEXI_BUILD_CMD="/home/wokwi/project/compile.sh"
 ENV HEXI_OUT_HEX="/home/wokwi/project/wokwi.wasm"
 ENV HEXI_OUT_ELF="/home/wokwi/project/wokwi.wasm"
 
-CMD cd /home/wokwi/project && \
+CMD ./compile.sh && \
   ls && \
   exit
