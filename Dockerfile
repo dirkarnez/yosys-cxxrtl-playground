@@ -16,6 +16,7 @@ RUN mkdir -p /home/wokwi/project
 # ADD --chown=wokwi . /home/wokwi
 COPY ./project /home/wokwi/project
 VOLUME /home/wokwi/project
+WORKDIR /home/wokwi/project
 
 # Wokwi builder configuration:
 ENV HEXI_SRC_DIR="/home/wokwi/project/src"
