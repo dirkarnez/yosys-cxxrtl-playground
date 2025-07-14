@@ -13,7 +13,7 @@ USER wokwi
 ENV PATH="/opt/oss-cad-suite/bin:${PATH}"
 ADD --chown=wokwi project /home/wokwi/project
 WORKDIR /home/wokwi/project
-VOLUME /home/wokwi/project
+VOLUME /home/wokwi
 
 # Wokwi builder configuration:
 ENV HEXI_SRC_DIR="/home/wokwi/project/src"
