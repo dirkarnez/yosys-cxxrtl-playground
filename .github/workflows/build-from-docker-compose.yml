@@ -19,7 +19,7 @@ jobs:
     # mkdir -p dist && \
       - name: set permission and run
         run: |
-          sudo chmod -R a+x . && \
+          sudo chmod -R 777 . && \
           ls && \
           docker compose up --build && docker compose down
           
