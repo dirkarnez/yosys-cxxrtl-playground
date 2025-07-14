@@ -17,10 +17,10 @@ jobs:
       
     # continue-on-error: true
     # mkdir -p dist && \
+    # sudo chmod -R +x . && \
+    # ls && \
       - name: set permission and run
         run: |
-          sudo chmod -R +x . && \
-          ls && \
           docker compose up --build && docker compose down
           
       # - uses: fastai/workflows/ssh@master
