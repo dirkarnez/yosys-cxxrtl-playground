@@ -11,9 +11,14 @@ RUN ./emsdk install latest && ./emsdk activate latest
 RUN adduser --disabled-password --gecos "" wokwi
 USER wokwi
 ENV PATH="/opt/oss-cad-suite/bin:${PATH}"
-ADD --chown=wokwi project /home/wokwi/project
-VOLUME /home/wokwi
+
+RUN mkdir -p /home/wokwi/project
+
+
+ADD --chown=wokwi . /home/wokwi
 WORKDIR /home/wokwi/project
+VOLUME /home/wokwi
+
 
 # Wokwi builder configuration:
 ENV HEXI_SRC_DIR="/home/wokwi/project/src"
