@@ -117,8 +117,6 @@
 //   update_output_pins(chip);
 // }
 
-#include "top.cc"
-
 extern "C" 
 void chip_init(void) {
         cxxrtl_design::p_chip design;
