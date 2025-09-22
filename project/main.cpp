@@ -121,12 +121,13 @@
 
 extern "C" 
 void chip_init(void) {
-  cxxrtl_design::p_wokwi design;
-  design.step();
-  // while (1) {
-  //   design.p_clk.set(false);
-  //   design.step();
-  //   design.p_clk.set(true);
-  //   design.step();
-  // }
+        cxxrtl_design::p_chip design;
+        design.step();
+        // clk
+        // while (1) {
+        //   design.p_clk.set(false);
+        //   design.step();
+        //   design.p_clk.set(true);
+        //   design.step();
+        // }
 }
