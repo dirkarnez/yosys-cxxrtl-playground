@@ -1,4 +1,3 @@
-#include <string>
 #include <iostream>
 #include <emscripten/bind.h>
 #include "src/chip_cxxrtl_generated.h"
