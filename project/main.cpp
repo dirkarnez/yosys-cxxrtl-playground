@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "emscripten.h"
-#include "src/wokwi_cxxrtl.h"
+#include "src/chip_cxxrtl_generated.h"
+
 
 // namespace wokwi {
 // #include "src/wokwi-api.h"
