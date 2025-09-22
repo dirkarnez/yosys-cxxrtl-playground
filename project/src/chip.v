@@ -1,4 +1,4 @@
-module wokwi(input clk, output led);
+module chip(input clk, output led);
   reg [11:0] counter = 12'h0;
     
   always @(posedge clk) begin
