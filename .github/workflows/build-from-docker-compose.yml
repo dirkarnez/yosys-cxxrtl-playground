@@ -30,7 +30,11 @@ jobs:
           
       # - name: Setup tmate session
       #   uses: mxschmitt/action-tmate@master
-      
+
+      - working-directory: 'project'
+        run: |
+          ls -R
+          
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
