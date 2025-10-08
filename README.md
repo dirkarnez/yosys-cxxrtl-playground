@@ -2,6 +2,10 @@ yosys-cxxrtl-playground
 =======================
 From [wokwi-builders/verilog-cxxrtl at main · wokwi/wokwi-builders](https://github.com/wokwi/wokwi-builders/tree/main/verilog-cxxrtl)
 
+### TODOs
+- [ ] Driver code virtual clock
+  - [dirkarnez/win32-counter](https://github.com/dirkarnez/win32-counter)
+  
 ### Tutorials
 - [CXXRTL, a Yosys Simulation Backend | Electronics etc…](https://tomverbeure.github.io/2020/08/08/CXXRTL-the-New-Yosys-Simulation-Backend.html#dumping-vcd-waveforms)
   - VCD waveforms (Using [GTKWave](https://gtkwave.sourceforge.net/))
