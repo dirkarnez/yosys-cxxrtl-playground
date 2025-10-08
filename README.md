@@ -5,6 +5,7 @@ From [wokwi-builders/verilog-cxxrtl at main · wokwi/wokwi-builders](https://git
 ### TODOs
 - [ ] Driver code virtual clock
   - [dirkarnez/win32-counter](https://github.com/dirkarnez/win32-counter)
+  - js high resolution timer
   
 ### Tutorials
 - [CXXRTL, a Yosys Simulation Backend | Electronics etc…](https://tomverbeure.github.io/2020/08/08/CXXRTL-the-New-Yosys-Simulation-Backend.html#dumping-vcd-waveforms)
