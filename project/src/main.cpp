@@ -1,6 +1,7 @@
 #include <iostream>
 #include <emscripten/bind.h>
-#include "src/chip_cxxrtl_generated.h"
+#include <backends/cxxrtl/runtime/cxxrtl/cxxrtl_vcd.h>  // oss-cad-suite\share\yosys\include\backends\cxxrtl\runtime\cxxrtl
+#include "chip_cxxrtl_generated.h"
 
 using namespace emscripten;
 
