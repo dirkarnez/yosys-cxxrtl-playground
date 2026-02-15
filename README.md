@@ -1,5 +1,6 @@
 yosys-cxxrtl-playground
 =======================
+<kbd>[**vscode-web-action**](https://github.com/dirkarnez/vscode-web-action/actions/workflows/vscode-web.yml)</kbd><br>
 From [wokwi-builders/verilog-cxxrtl at main · wokwi/wokwi-builders](https://github.com/wokwi/wokwi-builders/tree/main/verilog-cxxrtl)
 
 ### TODOs
