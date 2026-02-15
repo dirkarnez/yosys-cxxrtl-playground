@@ -3,7 +3,8 @@
   <script>
     var Module = {
       onRuntimeInitialized: function() {
-        Module.chip_init();
+        let blob = new Blob([Module.chip_init()], { type: 'text/plain' });
+        console.log(URL.createObjectURL(blob));
       }
     };
   </script>

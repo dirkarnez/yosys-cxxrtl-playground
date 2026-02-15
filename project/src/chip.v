@@ -1,10 +1,10 @@
 module chip(input clk, output led);
-  reg [11:0] counter = 12'h0;
-    
-  always @(posedge clk) begin
-    counter <= counter + 1'b1;
-  end
-    
-  assign led = counter[7];
-    
+
+    reg [7:0] counter = 0;
+
+    always @(posedge clk) 
+        counter <= counter + 1'b1;
+
+    assign led = counter[7];
+
 endmodule
