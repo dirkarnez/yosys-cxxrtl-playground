@@ -20,10 +20,10 @@ std::string chip_init(void) {
 
     // debug_items maps the hierarchical names of signals and memories in the design
     // to a cxxrtl_object (a value, a wire, or a memory)
-    // cxxrtl::debug_items all_debug_items;
+    cxxrtl::debug_items all_debug_items;
 
     // Load the debug items of the top down the whole design hierarchy
-    // design.debug_info(&all_debug_items, nullptr, "");
+    design.debug_info(&all_debug_items, nullptr);
 
     // vcd_writer is the CXXRTL object that's responsible of creating a string with
     // the VCD file contents.
@@ -36,7 +36,7 @@ std::string chip_init(void) {
     // It's not necessary to load all debug objects to the VCD. There is, for example,
     // a  vcd.add(<debug items>, <filter>)) method which allows creating your custom filter to decide
     // what to add and what not. 
-    // vcd.add_without_memories(all_debug_items);
+    vcd.add_without_memories(all_debug_items);
 
     std::ostringstream waves;
 

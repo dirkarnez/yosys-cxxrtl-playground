@@ -3,6 +3,10 @@
 <kbd>[**vscode-web-action**](https://github.com/dirkarnez/vscode-web-action/actions/workflows/vscode-web.yml)</kbd><br>
 From [wokwi-builders/verilog-cxxrtl at main · wokwi/wokwi-builders](https://github.com/wokwi/wokwi-builders/tree/main/verilog-cxxrtl)
 
+### Notes
+- Remember `sudo chmod -R +x .` when using Docker
+- Retained Emscripten-generated files (`chip.js`, `chip.wasm`) may need to manaully delete when using new Docker environment
+
 ### TODOs
 - [ ] Driver code virtual clock
   - [dirkarnez/win32-counter](https://github.com/dirkarnez/win32-counter)
