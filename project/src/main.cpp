@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <emscripten/bind.h>
-#include <backends/cxxrtl/cxxrtl_vcd.h>  // oss-cad-suite\share\yosys\include\backends\cxxrtl\runtime\cxxrtl
+#include <cxxrtl/cxxrtl_vcd.h>  // oss-cad-suite\share\yosys\include\backends\cxxrtl\runtime\cxxrtl
 #include "chip_cxxrtl_generated.h"
 
 using namespace emscripten;
@@ -23,7 +23,7 @@ std::string chip_init(void) {
     cxxrtl::debug_items all_debug_items;
 
     // Load the debug items of the top down the whole design hierarchy
-    design.debug_info(&all_debug_items, nullptr);
+    design.debug_info(&all_debug_items, nullptr, "");
 
     // vcd_writer is the CXXRTL object that's responsible of creating a string with
     // the VCD file contents.

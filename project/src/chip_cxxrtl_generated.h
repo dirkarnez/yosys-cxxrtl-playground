@@ -1,12 +1,12 @@
-#include <backends/cxxrtl/cxxrtl.h>
+#include <cxxrtl/cxxrtl.h>
 
 #if defined(CXXRTL_INCLUDE_CAPI_IMPL) || \
     defined(CXXRTL_INCLUDE_VCD_CAPI_IMPL)
-#include <backends/cxxrtl/cxxrtl_capi.cc>
+#include <cxxrtl/capi/cxxrtl_capi.cc>
 #endif
 
 #if defined(CXXRTL_INCLUDE_VCD_CAPI_IMPL)
-#include <backends/cxxrtl/cxxrtl_vcd_capi.cc>
+#include <cxxrtl/capi/cxxrtl_capi_vcd.cc>
 #endif
 
 using namespace cxxrtl_yosys;
@@ -33,19 +33,32 @@ struct p_chip : public module {
 	};
 
 	void reset() override;
-	bool eval() override;
-	bool commit() override;
+
+	bool eval(performer *performer = nullptr) override;
+
+	template<class ObserverT>
+	bool commit(ObserverT &observer) {
+		bool changed = false;
+		if (p_counter.commit(observer)) changed = true;
+		prev_p_clk = p_clk;
+		return changed;
+	}
+
+	bool commit() override {
+		observer observer;
+		return commit<>(observer);
+	}
 
 	void debug_eval();
 
-	void debug_info(debug_items &items, std::string path = "") override;
+	void debug_info(debug_items *items, debug_scopes *scopes, std::string path, metadata_map &&cell_attrs = {}) override;
 }; // struct p_chip
 
 void p_chip::reset() {
 	p_counter = wire<8>{0u};
 }
 
-bool p_chip::eval() {
+bool p_chip::eval(performer *performer) {
 	bool converged = true;
 	bool posedge_p_clk = this->posedge_p_clk();
 	// cells $procdff$4 $add$src/chip.v:6$2
@@ -57,22 +70,23 @@ bool p_chip::eval() {
 	return converged;
 }
 
-bool p_chip::commit() {
-	bool changed = false;
-	if (p_counter.commit()) changed = true;
-	prev_p_clk = p_clk;
-	return changed;
-}
-
 void p_chip::debug_eval() {
 }
 
 CXXRTL_EXTREMELY_COLD
-void p_chip::debug_info(debug_items &items, std::string path) {
+void p_chip::debug_info(debug_items *items, debug_scopes *scopes, std::string path, metadata_map &&cell_attrs) {
 	assert(path.empty() || path[path.size() - 1] == ' ');
-	items.add(path + "counter", debug_item(p_counter, 0, debug_item::DRIVEN_SYNC));
-	items.add(path + "led", debug_item(p_led, 0, debug_item::OUTPUT|debug_item::DRIVEN_COMB));
-	items.add(path + "clk", debug_item(p_clk, 0, debug_item::INPUT|debug_item::UNDRIVEN));
+	if (scopes) {
+		scopes->add(path.empty() ? path : path.substr(0, path.size() - 1), "chip", metadata_map({
+			{ "top", UINT64_C(1) },
+			{ "src", "src/chip.v:1.1-10.10" },
+		}), std::move(cell_attrs));
+	}
+	if (items) {
+		items->add(path, "counter", "init\000u\000\000\000\000\000\000\000\000src\000ssrc/chip.v:3.15-3.22\000", p_counter, 0, debug_item::DRIVEN_SYNC);
+		items->add(path, "led", "src\000ssrc/chip.v:1.31-1.34\000", p_led, 0, debug_item::OUTPUT|debug_item::DRIVEN_COMB);
+		items->add(path, "clk", "src\000ssrc/chip.v:1.19-1.22\000", p_clk, 0, debug_item::INPUT|debug_item::UNDRIVEN);
+	}
 }
 
 } // namespace cxxrtl_design
