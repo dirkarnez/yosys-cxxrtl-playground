@@ -23,3 +23,6 @@ From [wokwi-builders/verilog-cxxrtl at main · wokwi/wokwi-builders](https://git
       - [cxxrtl_eval/blink_vcd at master · tomverbeure/cxxrtl_eval](https://github.com/tomverbeure/cxxrtl_eval/tree/master/blink_vcd)
       - [cxxrtl_eval/blink_introspect at master · tomverbeure/cxxrtl_eval](https://github.com/tomverbeure/cxxrtl_eval/tree/master/blink_introspect)
 - [write_cxxrtl - convert design to C++ RTL simulation - YosysHQ Yosys 0.47 documentation](https://yosyshq.readthedocs.io/projects/yosys/en/0.47/cmd/write_cxxrtl.html)
+
+### Components
+- [YosysHQ/nextpnr: nextpnr portable FPGA place and route tool](https://github.com/YosysHQ/nextpnr)
