@@ -8,6 +8,8 @@ From [wokwi-builders/verilog-cxxrtl at main · wokwi/wokwi-builders](https://git
 - Retained Emscripten-generated files (`chip.js`, `chip.wasm`) may need to manaully delete when using new Docker environment
 
 ### TODOs
+- [ ] FFT
+  - [VenciFreeman/FFT_ChipDesign: A 16-point radix-4 FFT chip, including Verilog codes, netlists and layout. Group project.](https://github.com/VenciFreeman/FFT_ChipDesign)
 - [ ] Driver code virtual clock
   - [dirkarnez/win32-counter](https://github.com/dirkarnez/win32-counter)
   - js high resolution timer
