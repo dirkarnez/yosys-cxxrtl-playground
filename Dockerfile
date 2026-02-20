@@ -15,12 +15,4 @@ ADD --chown=wokwi project /home/wokwi/project
 WORKDIR /home/wokwi/project
 VOLUME /home/wokwi/project
 
-# Wokwi builder configuration:
-ENV HEXI_SRC_DIR="/home/wokwi/project/src"
-ENV HEXI_BUILD_CMD="/home/wokwi/project/compile.sh"
-ENV HEXI_OUT_HEX="/home/wokwi/project/chip.wasm"
-ENV HEXI_OUT_ELF="/home/wokwi/project/chip.wasm"
-
 CMD [ "bash", "./compile.sh" ]
-
-
