@@ -28,3 +28,5 @@ From [wokwi-builders/verilog-cxxrtl at main · wokwi/wokwi-builders](https://git
 
 ### Components
 - [YosysHQ/nextpnr: nextpnr portable FPGA place and route tool](https://github.com/YosysHQ/nextpnr)
+- https://github.com/YosysHQ/riscv-formal
+- https://github.com/YosysHQ/fpga-toolchain
