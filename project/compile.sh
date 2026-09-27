@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # -header
 yosys -p "read_verilog src/chip.v; write_cxxrtl src/chip_cxxrtl_generated.h" || exit 1
 source /opt/emsdk/emsdk_env.sh
